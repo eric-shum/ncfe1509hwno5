@@ -18,6 +18,7 @@ class TopNavSearch:
         searchfield.send_keys(query)
         searchBtn = self.driver.find_element(By.XPATH, "//button[@data-uname='homepageHeadersearchsubmit']")
         searchBtn.click()
+        html = self.driver.page_source
         datawait = WebDriverWait(self.driver, 60).until(
             ec.presence_of_element_located((By.XPATH, "//*[@id=\"serverSideDataTable\"]//td")))
         datatable = self.driver.find_element(By.XPATH, "//*[@id=\"serverSideDataTable\"]")
